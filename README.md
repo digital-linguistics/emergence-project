@@ -29,3 +29,43 @@ To minimize cognitive load, the final output must be formatted as a three-column
 I am a conceptual AI architect. I have designed the systemic flow, the logic gates, and the core system prompts (located in the `/prompts` folder of this repo). 
 
 I am inviting the open-source community to build the backend. If you are a Python/LangChain developer, feel free to wire up these API loops and bring the Emergence Project to life.
+
+```mermaid
+graph TD
+    %% Define Node Styles
+    classDef user fill:#2d3436,stroke:#dfe6e9,stroke-width:2px,color:#fff
+    classDef anchor fill:#0984e3,stroke:#74b9ff,stroke-width:2px,color:#fff
+    classDef novelty fill:#6c5ce7,stroke:#a29bfe,stroke-width:2px,color:#fff
+    classDef critic fill:#d63031,stroke:#ff7675,stroke-width:2px,color:#fff
+    classDef judge fill:#00b894,stroke:#55efc4,stroke-width:2px,color:#fff
+
+    %% Nodes
+    A[User Prompt / Problem Statement]:::user
+    B[Agent 1: The Anchor <br> Pragmatic Baseline]:::anchor
+    
+    subgraph The Kite Complex
+        C[Agent 2A: Novelty Actor <br> Cross-Domain Generator]:::novelty
+        D[Agent 2B: Physics Critic <br> Eco-Logic Filter]:::critic
+    end
+
+    E[Agent 3: The Judge <br> Semantic Constitution]:::judge
+    F[Final Validated Solution]:::user
+
+    %% Flow Dynamics
+    A -->|Initializes| B
+    B -->|Provides Standard Solution| C
+    
+    %% Internal Agent 2 Loop
+    C -->|Proposes Emergent Idea| D
+    D -.->|Fails Physics/Eco-Check: Refine| C
+    
+    %% Main Debate Loop
+    D -->|Passes Check: Validated Idea| B
+    B -.->|Critiques Pragmatism & Logistics| C
+    
+    %% Handoff to Judge
+    B ===>|Turn Limit Reached <br> Passes Transcript| E
+    D ===>|Turn Limit Reached <br> Passes Transcript| E
+    
+    %% Final Output
+    E -->|Evaluates vs. Constitution| F
